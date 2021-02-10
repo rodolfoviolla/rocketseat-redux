@@ -5,6 +5,7 @@ import { ActionTypes, ICartState } from "./types";
 
 const INITIAL_STATE: ICartState = {
   items: [],
+  total: 0,
   failedStockCheck: [],
 };
 
@@ -24,6 +25,8 @@ const cart: Reducer<ICartState> = (state = INITIAL_STATE, action) => {
             quantity: 1,
           });
         }
+
+        draft.total += product.price;
 
         break;
       }
